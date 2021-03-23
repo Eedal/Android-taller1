@@ -20,4 +20,9 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="lastname">Apellido</string>
+    <string name="email">Correo</string>
+    <string name="masculino">Maculino</string>
+    <string name="femenino">Femenino</string>
+    <string name="sexo">Sexo</string>
 </resources>

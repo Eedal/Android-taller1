@@ -4,10 +4,14 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     private String name;
+    private String lastname;
+    private String email;
     private String password;
 
-    public User(String name, String password) {
+    public User(String name, String password, String lastname, String email) {
         this.name = name;
+        this.lastname=lastname;
+        this.email=email;
         this.password = password;
     }
 
@@ -15,6 +19,22 @@ public class User implements Serializable {
     public User(){
         this.name = "";
         this.password = "";
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {

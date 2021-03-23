@@ -65,15 +65,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             this.Users.clear();
             this.Users = UsersAux;
         }
-        for (models.User User: Users)
+        for (models.User User: Users) {
             Log.d("User", User.getName());
+            Log.d("Apellido", User.getLastname());
+            Log.d("Passwrod", User.getPassword());
 
+        }
 
     }
 
     public void UsersSeeders(Integer units, String name){
         for (int i = 0; i < units ; i++){
-            Users.add(new User(name+ String.valueOf(i+1), name+ String.valueOf(i+1)));
+            Users.add(new User(name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", "holasoy@gmail.com"));
         }
     }
     public void checksBoxListener(){

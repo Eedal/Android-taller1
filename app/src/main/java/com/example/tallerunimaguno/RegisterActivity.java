@@ -17,7 +17,7 @@ import models.User;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText user, password;
+    EditText user, password, lastname, email;
     Button back, register;
     ArrayList<User> Users = new ArrayList<User>();
     @Override
@@ -25,6 +25,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         user = findViewById(R.id.user);
+        lastname= findViewById(R.id.lastname);
+        email= findViewById(R.id.email);
         password = findViewById(R.id.password);
         back = findViewById(R.id.btnBack);
         register = findViewById(R.id.btnRegister);
@@ -64,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }else if(existUser(user.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Este usuario ya se encuentra registrado", Toast.LENGTH_LONG).show();
                 }else{
-                    this.Users.add(UserController.store(user.getText().toString(), password.getText().toString()));
+                    this.Users.add(UserController.store(user.getText().toString(), password.getText().toString(), lastname.getText().toString(), email.getText().toString()));
                     Toast.makeText(getApplicationContext(), "Usuario registrado con exito", Toast.LENGTH_LONG).show();
                 }
                 break;
