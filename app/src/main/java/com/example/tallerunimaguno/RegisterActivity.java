@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         register = findViewById(R.id.btnRegister);
         back.setOnClickListener(this);
         register.setOnClickListener(this);
-        //this.Users = (ArrayList<User>) getIntent().getSerializableExtra("Users");
+        this.Users = (ArrayList<User>) getIntent().getSerializableExtra("Users");
 
     }
     public boolean existUser(String user){
@@ -46,7 +46,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch(v.getId()) {
             case R.id.btnBack:
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
+                try {
+                    i.putExtra("Users", Users);
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
 
+                }
                 startActivity(i);
                 break;
 
@@ -57,11 +62,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }else if (password.getText().toString().length() < 6){
                     Toast.makeText(getApplicationContext(), "La contraseña debe ser minimo de 6 caracteres", Toast.LENGTH_LONG).show();
                 }else if(existUser(user.getText().toString())){
-
                     Toast.makeText(getApplicationContext(), "Este usuario ya se encuentra registrado", Toast.LENGTH_LONG).show();
-
                 }else{
-                    UserController.store(user.getText().toString(), password.getText().toString());
+                    this.Users.add(UserController.store(user.getText().toString(), password.getText().toString()));
                     Toast.makeText(getApplicationContext(), "Usuario registrado con exito", Toast.LENGTH_LONG).show();
                 }
                 break;

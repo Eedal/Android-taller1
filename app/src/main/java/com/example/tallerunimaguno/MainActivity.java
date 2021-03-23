@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import models.User;
@@ -25,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
  Button ingresar, cancelar, register;
  CheckBox termsAndConditions, rememberData;
  public ArrayList<User> Users = new ArrayList();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //y password de igual manera (Elkin1, Elkin2, Elkin3,... ,Elkin(n)
 
         UsersSeeders(3, "Elkin");
+
+        ArrayList<User> UsersAux = (ArrayList<User>) getIntent().getSerializableExtra("Users");
+
+        if(UsersAux != null){
+            this.Users.clear();
+            this.Users = UsersAux;
+        }
+        for (models.User User: Users)
+            Log.d("User", User.getName());
+
+
     }
 
     public void UsersSeeders(Integer units, String name){
@@ -113,16 +125,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                if(usuario.getText().toString().isEmpty() || clave.getText().toString().isEmpty()){
                    Toast.makeText(getApplicationContext(), "Ambos datos son obligatorios para ingresar", Toast.LENGTH_LONG).show();
+               }else if( login( usuario.getText().toString(), clave.getText().toString() ) ){
+                   Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+                   startActivity(i);
                }else{
-
-                   if( login( usuario.getText().toString(), clave.getText().toString() ) ){
-
-                        Intent i = new Intent(getApplicationContext(),HomeActivity.class);
-                        startActivity(i);
-                   }
-                   else{
-                       Toast.makeText(getApplicationContext(), "Error credenciales", Toast.LENGTH_LONG).show();
-                   }
+                   Toast.makeText(getApplicationContext(), "Error credenciales", Toast.LENGTH_LONG).show();
                }
 
                break;
@@ -139,9 +146,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.btnregister:
 
-                Intent i = new Intent(getApplicationContext(),RegisterActivity.class);
-                //i.putExtra("Users", Users);
-                startActivity(i);
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+
+                try {
+                    intent.putExtra("Users", Users);
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
+
+                }
+                startActivity(intent);
 
                 break;
 
