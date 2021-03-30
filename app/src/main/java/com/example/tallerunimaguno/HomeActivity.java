@@ -15,13 +15,24 @@ import android.widget.Toast;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button matematicas;
+    Button ayuda, cerrar_sesion, fisica, geometria, texto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         matematicas = findViewById(R.id.btnmatematicas);
+        ayuda= findViewById(R.id.btn_ayuda);
+        cerrar_sesion= findViewById(R.id.btn_cerrar_sesion);
+        fisica= findViewById(R.id.btnfisica);
+        geometria= findViewById(R.id.btngeometria);
+        texto= findViewById(R.id.btntexto);
         matematicas.setOnClickListener(this);
+        ayuda.setOnClickListener(this);
+        cerrar_sesion.setOnClickListener(this);
+        fisica.setOnClickListener(this);
+        geometria.setOnClickListener(this);
+        texto.setOnClickListener(this);
     }
 
     @Override
@@ -47,10 +58,37 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        Intent i;
         switch (v.getId()){
             case R.id.btnmatematicas:
-                Intent i = new Intent(getApplicationContext(),MatematicasActivity.class);
+                i = new Intent(getApplicationContext(),MatematicasActivity.class);
                 startActivity(i);
+                break;
+            case R.id.btnfisica:
+
+                i = new Intent(getApplicationContext(),FisicaActivity.class);
+                startActivity(i);
+                break;
+            case R.id.btntexto:
+                i = new Intent(getApplicationContext(),TextoActivity.class);
+                startActivity(i);
+                break;
+            case R.id.btngeometria:
+                i = new Intent(getApplicationContext(),ActivityGeometria.class);
+                startActivity(i);
+                break;
+            case R.id.btn_ayuda:
+                Toast.makeText(getApplicationContext(), "App V.1 Realizado por:", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Elkin de armas", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Alex Ortega", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btn_cerrar_sesion:
+                i = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+                break;
+
+
+
         }
     }
 }

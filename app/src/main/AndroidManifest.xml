@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TallerUnimagUno">
+        <activity android:name=".RestablacerPassActivity"></activity>
+        <activity android:name=".ForgotPassActivity" />
+        <activity android:name=".TextoActivity" />
+        <activity android:name=".FisicaActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ActivityGeometria" />
         <activity android:name=".MatematicasActivity" />

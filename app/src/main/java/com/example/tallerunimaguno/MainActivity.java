@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.Serializable;
@@ -24,6 +25,7 @@ import models.User;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
  EditText usuario, clave;
+ TextView forgot_pass;
  Button ingresar, cancelar, register;
  CheckBox termsAndConditions, rememberData;
  public ArrayList<User> Users = new ArrayList();
@@ -39,9 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         register = findViewById(R.id.btnregister);
         termsAndConditions = findViewById(R.id.termsAndConditions);
         rememberData = findViewById(R.id.rememberData);
+
+        forgot_pass= findViewById(R.id.forgot_pass);
         ingresar.setOnClickListener(this);
         cancelar.setOnClickListener(this);
         register.setOnClickListener(this);
+
+        forgot_pass.setOnClickListener(this);
 
 
         //Se encarga de escuchar cuando el check de acepto termino y condiciones lo seleccionan o deseleccionan
@@ -160,6 +166,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
 
                 break;
+            case R.id.forgot_pass:
+                Toast.makeText(getApplicationContext(), "Contraseña olvidada", Toast.LENGTH_LONG).show();
 
         }
 
