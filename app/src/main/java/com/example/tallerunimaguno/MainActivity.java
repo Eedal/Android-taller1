@@ -167,7 +167,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.forgot_pass:
-                Toast.makeText(getApplicationContext(), "Contraseña olvidada", Toast.LENGTH_LONG).show();
+                Intent i=new Intent(getApplicationContext(), ForgotPassActivity.class);
+                startActivity(i);
 
         }
 

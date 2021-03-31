@@ -10,15 +10,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="0.8"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textView13"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="TextView" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="50sp"
+            android:text="Correo"
+            android:textSize="35sp" />
+
+        <EditText
+            android:id="@+id/txt_correo"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="40sp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/send_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200sp"
+            android:layout_marginLeft="200sp"
+            android:layout_marginTop="100sp"
+            android:layout_marginEnd="200sp"
+            android:layout_marginRight="200sp"
+            android:text="Enviar codigo"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -26,5 +50,37 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal" />
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="20sp"
+            android:text="Ingrese el codigo"
+            android:textSize="35sp" />
+
+        <EditText
+            android:id="@+id/txt_code"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="40sp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/validate_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200sp"
+            android:layout_marginLeft="200sp"
+            android:layout_marginTop="100sp"
+            android:layout_marginEnd="200sp"
+            android:layout_marginRight="200sp"
+            android:text="Validar codigo"
+            android:textSize="20sp" />
+    </LinearLayout>
 </LinearLayout>
