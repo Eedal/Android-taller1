@@ -20,7 +20,7 @@ import models.User;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText user, password, lastname, email;
+    EditText user, password, lastname, email, username;
     RadioButton masculino, femenino;
     Button back, register;
     AlertDialog.Builder builder_exito, builder;
@@ -28,6 +28,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        username= findViewById(R.id.username);
         user = findViewById(R.id.user);
         lastname= findViewById(R.id.lastname);
         email= findViewById(R.id.email);
@@ -64,6 +65,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btnRegister:
 
                 if(user.getText().toString().isEmpty()
+                        || username.getText().toString().isEmpty()
                         || password.getText().toString().isEmpty()
                         || lastname.getText().toString().isEmpty()
                         || email.getText().toString().isEmpty()
@@ -105,6 +107,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     AlertDialog dialog_exito=builder_exito.create();
                     dialog_exito.show();
                     user.setText("");
+                    username.setText("");
                     password.setText("");
                     lastname.setText("");
                     email.setText("");
