@@ -1,5 +1,6 @@
 package com.example.tallerunimaguno;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
  TextView forgot_pass;
  Button ingresar, cancelar, register;
  CheckBox termsAndConditions, rememberData;
+ AlertDialog.Builder builder;
  public ArrayList<User> Users = new ArrayList();
 
     @Override
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Crear un objeto SharePreferences para enseguida que se va creando la vista va colocando los datos, en caso de no
         //existir coloca "Sin valor" en el campo de texto usuario y "" en el campo de texto clave
         SharedPreferences preferences = getSharedPreferences("data", Context.MODE_PRIVATE);
-        usuario.setText(preferences.getString("user", "Sin valor"));
+        usuario.setText(preferences.getString("user", ""));
         clave.setText(preferences.getString("password", ""));
 
         //Crea n objetos del modelo User con name que se le pase, en este caso Elkin1, Elkin2, Elkin3,... , Elkin(n)
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         for (models.User User: Users) {
             Log.d("User", User.getName());
-            Log.d("Apellido", User.getLastname());
+            Log.d("Sexo", User.getSexo());
             Log.d("Passwrod", User.getPassword());
 
         }
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void UsersSeeders(Integer units, String name){
         for (int i = 0; i < units ; i++){
-            Users.add(new User(name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", "holasoy@gmail.com"));
+            Users.add(new User(name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", "holasoy@gmail.com", "Masculino"));
         }
     }
     public void checksBoxListener(){
@@ -134,12 +136,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btningresar :
 
                if(usuario.getText().toString().isEmpty() || clave.getText().toString().isEmpty()){
-                   Toast.makeText(getApplicationContext(), "Ambos datos son obligatorios para ingresar", Toast.LENGTH_LONG).show();
+                   builder= new AlertDialog.Builder(this);
+                   builder.setTitle("Error");
+                   builder.setMessage("Ambos daros son obligatorios para ingresar");
+                   builder.setPositiveButton("Ok", null);
+                   AlertDialog dialog=builder.create();
+                   dialog.show();
                }else if( login( usuario.getText().toString(), clave.getText().toString() ) ){
                    Intent i = new Intent(getApplicationContext(),HomeActivity.class);
                    startActivity(i);
                }else{
-                   Toast.makeText(getApplicationContext(), "Error credenciales", Toast.LENGTH_LONG).show();
+                   builder= new AlertDialog.Builder(this);
+                   builder.setTitle("Error");
+                   builder.setMessage("Error credenciales");
+                   builder.setPositiveButton("Ok", null);
+                   AlertDialog dialog=builder.create();
+                   dialog.show();
                }
 
                break;

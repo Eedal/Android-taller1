@@ -10,17 +10,30 @@ public class User implements Serializable {
     private String sexo;
     private String code;
 
-    public User(String name, String password, String lastname, String email) {
+    public User(String name, String password, String lastname, String email, String sexo) {
         this.name = name;
         this.lastname=lastname;
         this.email=email;
         this.password = password;
+        this.sexo= sexo;
     }
+
 
 
     public User(){
         this.name = "";
+        this.lastname="";
+        this.email="";
         this.password = "";
+        this.sexo= "";
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public String getLastname() {

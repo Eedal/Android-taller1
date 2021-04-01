@@ -1,8 +1,10 @@
 package com.example.tallerunimaguno;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +18,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     Button matematicas;
     Button ayuda, cerrar_sesion, fisica, geometria, texto;
+    AlertDialog.Builder builder_ayuda, builder_cerrar_sesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +81,30 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 break;
             case R.id.btn_ayuda:
-                Toast.makeText(getApplicationContext(), "App V.1 Realizado por:", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "Elkin de armas", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "Alex Ortega", Toast.LENGTH_SHORT).show();
+                builder_ayuda= new AlertDialog.Builder(this);
+                builder_ayuda.setTitle("Ayuda");
+                builder_ayuda.setMessage("App V1: \n Realizado por: Elkin de armas, Alex Ortega");
+                builder_ayuda.setPositiveButton("Ok", null);
+                builder_ayuda.setNegativeButton("Cancel", null);
+                AlertDialog dialog_ayuda=builder_ayuda.create();
+                dialog_ayuda.show();
                 break;
+
             case R.id.btn_cerrar_sesion:
-                i = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(i);
+                builder_cerrar_sesion= new AlertDialog.Builder(this);
+                builder_cerrar_sesion.setTitle("Atención");
+                builder_cerrar_sesion.setMessage("¿Desea cerrar sesion?");
+
+                builder_cerrar_sesion.setPositiveButton("Cancel", null);
+                builder_cerrar_sesion.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i=  new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(i);
+                    }
+                });
+                AlertDialog dialog_sesion=builder_cerrar_sesion.create();
+                dialog_sesion.show();
                 break;
 
 

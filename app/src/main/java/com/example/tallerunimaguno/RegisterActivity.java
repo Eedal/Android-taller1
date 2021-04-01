@@ -1,12 +1,15 @@
 package com.example.tallerunimaguno;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -18,7 +21,9 @@ import models.User;
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText user, password, lastname, email;
+    RadioButton masculino, femenino;
     Button back, register;
+    AlertDialog.Builder builder_exito, builder;
     ArrayList<User> Users = new ArrayList<User>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +35,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         password = findViewById(R.id.password);
         back = findViewById(R.id.btnBack);
         register = findViewById(R.id.btnRegister);
+
+        masculino= (RadioButton) findViewById(R.id.masculino);
+        femenino= (RadioButton) findViewById(R.id.femenino);
+
         back.setOnClickListener(this);
         register.setOnClickListener(this);
         this.Users = (ArrayList<User>) getIntent().getSerializableExtra("Users");
+
+
 
     }
     public boolean existUser(String user){
@@ -63,19 +74,54 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         || password.getText().toString().isEmpty()
                         || lastname.getText().toString().isEmpty()
                         || email.getText().toString().isEmpty()
+
                 ){
-                    Toast.makeText(getApplicationContext(), "Ambos datos son obligatorios para ingresar", Toast.LENGTH_LONG).show();
+                    builder= new AlertDialog.Builder(this);
+                    builder.setTitle("Error credenciales");
+                    builder.setMessage("No puede quedar campos vacios");
+                    builder.setPositiveButton("Ok", null);
+                    AlertDialog dialog=builder.create();
+                    dialog.show();
                 }else if (password.getText().toString().length() < 6){
-                    Toast.makeText(getApplicationContext(), "La contraseña debe ser minimo de 6 caracteres", Toast.LENGTH_LONG).show();
+                    builder= new AlertDialog.Builder(this);
+                    builder.setTitle("Error");
+                    builder.setMessage("La contraseña debe ser de al menos 6 caracteres");
+                    builder.setPositiveButton("Ok", null);
+                    AlertDialog dialog=builder.create();
+                    dialog.show();
                 }else if(existUser(user.getText().toString())){
-                    Toast.makeText(getApplicationContext(), "Este usuario ya se encuentra registrado", Toast.LENGTH_LONG).show();
+                    builder= new AlertDialog.Builder(this);
+                    builder.setTitle("Atención");
+                    builder.setMessage("Este usuario ya se encuentra registrado");
+                    builder.setPositiveButton("Ok", null);
+                    AlertDialog dialog=builder.create();
+                    dialog.show();
                 }else{
-                    this.Users.add(UserController.store(user.getText().toString(), password.getText().toString(), lastname.getText().toString(), email.getText().toString()));
-                    Toast.makeText(getApplicationContext(), "Usuario registrado con exito", Toast.LENGTH_LONG).show();
+                    String sexo="";
+                    if(masculino.isChecked()){
+                        sexo="Masculino";
+                    }
+                    if(femenino.isChecked()){
+                        sexo="Femenino";
+                    }
+                    this.Users.add(UserController.store(user.getText().toString(), password.getText().toString(), lastname.getText().toString(), email.getText().toString(), sexo));
+                    builder_exito= new AlertDialog.Builder(this);
+                    builder_exito.setTitle("Atención");
+                    builder_exito.setMessage("Registo exitoso");
+                    builder_exito.setPositiveButton("Ok", null);
+                    AlertDialog dialog_exito=builder_exito.create();
+                    dialog_exito.show();
+                    user.setText("");
+                    password.setText("");
+                    lastname.setText("");
+                    email.setText("");
+                    sexo="";
                 }
                 break;
 
         }
     }
+
+
 
 }
