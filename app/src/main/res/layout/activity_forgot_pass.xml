@@ -36,7 +36,7 @@
             android:id="@+id/send_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="200sp"
+            android:layout_marginStart="20sp"
             android:layout_marginLeft="200sp"
             android:layout_marginTop="100sp"
             android:layout_marginEnd="200sp"
@@ -75,11 +75,6 @@
             android:id="@+id/validate_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="200sp"
-            android:layout_marginLeft="200sp"
-            android:layout_marginTop="100sp"
-            android:layout_marginEnd="200sp"
-            android:layout_marginRight="200sp"
             android:text="Validar codigo"
             android:textSize="20sp" />
     </LinearLayout>

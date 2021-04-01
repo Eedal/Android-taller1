@@ -68,13 +68,6 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
 
     public String getCode() {
         return code;

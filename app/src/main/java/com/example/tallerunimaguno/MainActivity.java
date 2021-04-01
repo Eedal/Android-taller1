@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
  Button ingresar, cancelar, register;
  CheckBox termsAndConditions, rememberData;
  AlertDialog.Builder builder;
- public ArrayList<User> Users = new ArrayList();
-
+ //public ArrayList<User> Users = new ArrayList();
+    //GlobalData.Users;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,10 +71,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayList<User> UsersAux = (ArrayList<User>) getIntent().getSerializableExtra("Users");
 
         if(UsersAux != null){
-            this.Users.clear();
-            this.Users = UsersAux;
+            GlobalData.Users.clear();
+            GlobalData.Users = UsersAux;
         }
-        for (models.User User: Users) {
+        for (models.User User: GlobalData.Users) {
             Log.d("User", User.getName());
             Log.d("Sexo", User.getSexo());
             Log.d("Passwrod", User.getPassword());
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void UsersSeeders(Integer units, String name){
         for (int i = 0; i < units ; i++){
-            Users.add(new User(name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", "holasoy@gmail.com", "Masculino"));
+            GlobalData.Users.add(new User(name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", "holasoy@gmail.com", "Masculino"));
         }
     }
     public void checksBoxListener(){
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public boolean login(String user, String password){
         boolean response = false;
-        for (models.User User: Users)
+        for (models.User User: GlobalData.Users)
             if(User.getName().equals(user) && User.getPassword().equals(password))
                 response = true;
 
@@ -170,12 +170,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
 
-                try {
-                    intent.putExtra("Users", Users);
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
-
-                }
                 startActivity(intent);
 
                 break;

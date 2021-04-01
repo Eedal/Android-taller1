@@ -7,10 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class ForgotPassActivity extends AppCompatActivity implements View.OnClickListener{
     Button validate_code;
+    EditText txt_correo;
     String code_temp;
+
 
 
     @Override
@@ -19,6 +22,7 @@ public class ForgotPassActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_forgot_pass);
 
         validate_code= findViewById(R.id.validate_code);
+        txt_correo= findViewById(R.id.txt_correo);
 
         validate_code.setOnClickListener(this);
 

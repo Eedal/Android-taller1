@@ -24,7 +24,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     RadioButton masculino, femenino;
     Button back, register;
     AlertDialog.Builder builder_exito, builder;
-    ArrayList<User> Users = new ArrayList<User>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,14 +40,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         back.setOnClickListener(this);
         register.setOnClickListener(this);
-        this.Users = (ArrayList<User>) getIntent().getSerializableExtra("Users");
 
 
 
     }
     public boolean existUser(String user){
         boolean response = false;
-        for (models.User User: Users)
+        for (models.User User: GlobalData.Users)
             if(User.getName().equals(user))
                 response = true;
 
@@ -59,12 +57,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         switch(v.getId()) {
             case R.id.btnBack:
                 Intent i = new Intent(getApplicationContext(),MainActivity.class);
-                try {
-                    i.putExtra("Users", Users);
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_LONG).show();
 
-                }
                 startActivity(i);
                 break;
 
@@ -104,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     if(femenino.isChecked()){
                         sexo="Femenino";
                     }
-                    this.Users.add(UserController.store(user.getText().toString(), password.getText().toString(), lastname.getText().toString(), email.getText().toString(), sexo));
+                    GlobalData.Users.add(UserController.store(user.getText().toString(), password.getText().toString(), lastname.getText().toString(), email.getText().toString(), sexo));
                     builder_exito= new AlertDialog.Builder(this);
                     builder_exito.setTitle("Atención");
                     builder_exito.setMessage("Registo exitoso");
@@ -116,6 +109,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     lastname.setText("");
                     email.setText("");
                     sexo="";
+                    masculino.setChecked(false);
+                    femenino.setChecked(false);
                 }
                 break;
 
