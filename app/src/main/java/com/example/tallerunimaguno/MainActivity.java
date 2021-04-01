@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void UsersSeeders(Integer units, String name){
         for (int i = 0; i < units ; i++){
-            Users.add(new User(name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", "holasoy@gmail.com", "Masculino"));
+            Users.add(new User(name+ String.valueOf(i+1),name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", "holasoy@gmail.com", "Masculino"));
         }
     }
     public void checksBoxListener(){
