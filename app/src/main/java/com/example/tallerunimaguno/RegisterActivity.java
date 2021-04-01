@@ -59,7 +59,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.btnRegister:
 
-                if(user.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
+                if(user.getText().toString().isEmpty()
+                        || password.getText().toString().isEmpty()
+                        || lastname.getText().toString().isEmpty()
+                        || email.getText().toString().isEmpty()
+                ){
                     Toast.makeText(getApplicationContext(), "Ambos datos son obligatorios para ingresar", Toast.LENGTH_LONG).show();
                 }else if (password.getText().toString().length() < 6){
                     Toast.makeText(getApplicationContext(), "La contraseña debe ser minimo de 6 caracteres", Toast.LENGTH_LONG).show();

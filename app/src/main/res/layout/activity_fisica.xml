@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
     tools:context=".FisicaActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:text="@string/fisica"
+            android:textAlignment="center"
+            android:textSize="80dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/fisica_velocidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80sp"
+            android:layout_marginTop="40sp"
+            android:layout_marginEnd="80sp"
+            android:layout_marginBottom="40sp"
+            android:layout_weight="1"
+            android:background="@color/design_default_color_secondary_variant"
+            android:backgroundTint="#03A9F4"
+            android:text="Velocidad" />
+
+        <Button
+            android:id="@+id/fisica_fuerza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80sp"
+            android:layout_marginTop="40sp"
+            android:layout_marginEnd="80sp"
+            android:layout_marginBottom="40sp"
+            android:layout_weight="1"
+            android:background="@color/teal_700"
+            android:text="Fuerza" />
+
+        <Button
+            android:id="@+id/fisica_voltaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80sp"
+            android:layout_marginTop="40sp"
+            android:layout_marginEnd="80sp"
+            android:layout_marginBottom="40sp"
+            android:layout_weight="1"
+            android:background="@color/teal_700"
+            android:text="Voltaje" />
+
+    </LinearLayout>
+</LinearLayout>

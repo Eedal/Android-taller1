@@ -7,6 +7,7 @@ public class User implements Serializable {
     private String lastname;
     private String email;
     private String password;
+    private String sexo;
 
     public User(String name, String password, String lastname, String email) {
         this.name = name;

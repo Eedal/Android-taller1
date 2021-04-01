@@ -22,7 +22,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="lastname">Apellido</string>
     <string name="email">Correo</string>
-    <string name="masculino">Maculino</string>
+    <string name="masculino">Masculino</string>
     <string name="femenino">Femenino</string>
     <string name="sexo">Sexo</string>
     <string name="geometria">Geometria</string>
