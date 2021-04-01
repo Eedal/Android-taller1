@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class ForgotPassActivity extends AppCompatActivity implements View.OnClickListener{
     Button validate_code;
+    String code_temp;
 
 
     @Override
@@ -19,6 +21,10 @@ public class ForgotPassActivity extends AppCompatActivity implements View.OnClic
         validate_code= findViewById(R.id.validate_code);
 
         validate_code.setOnClickListener(this);
+
+        code_temp = String.valueOf( Math.round ( (Math.random() * (999999 - 100000)) + 100000 ) );
+
+        Log.d("Tag", code_temp);
 
     }
 

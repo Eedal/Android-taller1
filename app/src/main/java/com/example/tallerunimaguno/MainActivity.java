@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         usuario = findViewById(R.id.edtusuario);
         clave = findViewById(R.id.edtclave);
         ingresar = findViewById(R.id.btningresar);

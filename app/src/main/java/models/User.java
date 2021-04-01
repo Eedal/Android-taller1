@@ -8,6 +8,7 @@ public class User implements Serializable {
     private String email;
     private String password;
     private String sexo;
+    private String code;
 
     public User(String name, String password, String lastname, String email) {
         this.name = name;
@@ -54,6 +55,19 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getSexo() {
+        return sexo;
+    }
 
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 }
