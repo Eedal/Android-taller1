@@ -45,13 +45,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
     }
-    public boolean existUser(String user){
+    public boolean existEmail(String email){
         boolean response = false;
         for (models.User User: GlobalData.Users)
-            if(User.getName().equals(user))
+            if(User.getEmail().equals(email))
                 response = true;
 
         return response;
+    }
+
+    public boolean existUsername(String username){
+        boolean response2 = false;
+        for (models.User User: GlobalData.Users)
+            if(User.getUsername().equals(username))
+                response2 = true;
+
+        return response2;
     }
     @Override
     public void onClick(View v){
@@ -84,12 +93,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     builder.setPositiveButton("Ok", null);
                     AlertDialog dialog=builder.create();
                     dialog.show();
-                }else if(existUser(user.getText().toString())){
-                    builder= new AlertDialog.Builder(this);
+                }else if(existEmail(email.getText().toString())) {
+                    builder = new AlertDialog.Builder(this);
                     builder.setTitle("Atención");
-                    builder.setMessage("Este usuario ya se encuentra registrado");
+                    builder.setMessage("Este correo ya se encuentra registrado");
                     builder.setPositiveButton("Ok", null);
-                    AlertDialog dialog=builder.create();
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }else if(existUsername(username.getText().toString())){
+                    builder = new AlertDialog.Builder(this);
+                    builder.setTitle("Atención");
+                    builder.setMessage("Username ya existe");
+                    builder.setPositiveButton("Ok", null);
+                    AlertDialog dialog = builder.create();
                     dialog.show();
                 }else{
                     String sexo="";
@@ -99,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     if(femenino.isChecked()){
                         sexo="Femenino";
                     }
-                    GlobalData.Users.add(UserController.store(user.getText().toString(), password.getText().toString(), lastname.getText().toString(), email.getText().toString(), sexo));
+                    GlobalData.Users.add(UserController.store(username.getText().toString(),user.getText().toString(), password.getText().toString(), lastname.getText().toString(), email.getText().toString(), sexo));
                     builder_exito= new AlertDialog.Builder(this);
                     builder_exito.setTitle("Atención");
                     builder_exito.setMessage("Registo exitoso");

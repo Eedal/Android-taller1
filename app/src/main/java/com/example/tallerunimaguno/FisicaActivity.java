@@ -2,6 +2,7 @@ package com.example.tallerunimaguno;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -24,8 +25,6 @@ public class FisicaActivity extends AppCompatActivity implements View.OnClickLis
         fuerza.setOnClickListener(this);
         voltaje.setOnClickListener(this);
 
-        velocidad.setBackgroundColor(Color.rgb(3,169,244));
-        fuerza.setBackgroundColor(Color.rgb(3,169,244));
 
 
 
@@ -33,9 +32,15 @@ public class FisicaActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
+        Intent i;
         switch (v.getId()) {
             case R.id.fisica_velocidad:
-
+                i= new Intent(getApplicationContext(), FisicaVelocidad.class);
+                startActivity(i);
+                break;
+            case R.id.fisica_fuerza:
+                i= new Intent(getApplicationContext(), FisicaFuerza.class);
+                startActivity(i);
                 break;
         }
     }

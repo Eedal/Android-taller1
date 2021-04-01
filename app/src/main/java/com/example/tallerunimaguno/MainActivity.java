@@ -75,9 +75,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             GlobalData.Users = UsersAux;
         }
         for (models.User User: GlobalData.Users) {
-            Log.d("User", User.getName());
-            Log.d("Sexo", User.getSexo());
-            Log.d("Passwrod", User.getPassword());
+            Log.d("User", User.getUsername());
+            Log.d("Email", User.getEmail());
+
 
         }
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void UsersSeeders(Integer units, String name){
         for (int i = 0; i < units ; i++){
-            GlobalData.Users.add(new User(name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", "holasoy@gmail.com", "Masculino"));
+            GlobalData.Users.add(new User(name+String.valueOf(i+1)+ String.valueOf(i+2),name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", "holasoy@gmail.com", "Masculino"));
         }
     }
     public void checksBoxListener(){
@@ -109,10 +109,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-    public boolean login(String user, String password){
+    public boolean login(String username, String password){
         boolean response = false;
         for (models.User User: GlobalData.Users)
-            if(User.getName().equals(user) && User.getPassword().equals(password))
+            if(User.getUsername().equals(username) && User.getPassword().equals(password))
                 response = true;
 
         return response;
