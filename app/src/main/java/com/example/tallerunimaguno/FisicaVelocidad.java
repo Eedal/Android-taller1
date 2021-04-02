@@ -31,27 +31,41 @@ public class FisicaVelocidad extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.calcular_velocidad:
-                if (tiempo.getText().toString().equals(0)) {
-                    builder= new AlertDialog.Builder(this);
-                    builder.setTitle("Error");
-                    builder.setMessage("El tiempo no puede ser 0");
-                    builder.setPositiveButton("Ok", null);
-                    AlertDialog dialog=builder.create();
-                    dialog.show();
-                } else {
-                    double velocidad= Double.parseDouble(distancia.getText().toString())/ Double.parseDouble(tiempo.getText().toString());
+                if(distancia.getText().toString().isEmpty()
+                        || tiempo.getText().toString().isEmpty()
 
-                    builder= new AlertDialog.Builder(this);
-                    builder.setTitle("Velocidad");
-                    builder.setMessage("La velocidad es: "+ velocidad +" m/s");
+                ){
+                    builder = new AlertDialog.Builder(this);
+                    builder.setTitle("Advertencia");
+                    builder.setMessage("No puede quedar campos vacios");
                     builder.setPositiveButton("Ok", null);
                     AlertDialog dialog=builder.create();
                     dialog.show();
-                    velocidad=0;
-                    distancia.setText("");
-                    tiempo.setText("");
+                }
+                else {
+                    if (tiempo.getText().toString().equals(0)) {
+                        builder = new AlertDialog.Builder(this);
+                        builder.setTitle("Error");
+                        builder.setMessage("El tiempo no puede ser 0");
+                        builder.setPositiveButton("Ok", null);
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    } else {
+                        double velocidad = Double.parseDouble(distancia.getText().toString()) / Double.parseDouble(tiempo.getText().toString());
+
+                        builder = new AlertDialog.Builder(this);
+                        builder.setTitle("Velocidad");
+                        builder.setMessage("La velocidad es: " + velocidad + " m/s");
+                        builder.setPositiveButton("Ok", null);
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                        velocidad = 0;
+                        distancia.setText("");
+                        tiempo.setText("");
+                    }
                 }
                 break;
+
 
 
         }

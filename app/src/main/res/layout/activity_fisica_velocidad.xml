@@ -37,7 +37,7 @@
         android:layout_marginTop="31dp"
         android:contentDescription="Ingrese ldistancia"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none|number|numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
@@ -60,7 +60,7 @@
         android:layout_marginTop="29dp"
         android:contentDescription="Ingrese tiempo"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none|number|numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
 

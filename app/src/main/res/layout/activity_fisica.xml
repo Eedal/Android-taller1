@@ -42,7 +42,9 @@
             android:layout_weight="1"
             android:background="@color/design_default_color_secondary_variant"
             android:backgroundTint="#03A9F4"
-            android:text="Velocidad" />
+            android:text="Velocidad"
+            app:icon="@drawable/velocidad"
+            app:iconTint="@color/teal_700" />
 
         <Button
             android:id="@+id/fisica_fuerza"
@@ -54,7 +56,9 @@
             android:layout_marginBottom="40sp"
             android:layout_weight="1"
             android:background="@color/teal_700"
-            android:text="Fuerza" />
+            android:text="Fuerza"
+            app:icon="@drawable/formula"
+            app:iconTint="@color/teal_700" />
 
         <Button
             android:id="@+id/fisica_voltaje"
@@ -66,7 +70,9 @@
             android:layout_marginBottom="40sp"
             android:layout_weight="1"
             android:background="@color/teal_700"
-            android:text="Voltaje" />
+            android:text="Voltaje"
+            app:icon="@android:drawable/ic_lock_idle_low_battery"
+            app:iconTint="@color/teal_700" />
 
     </LinearLayout>
 </LinearLayout>

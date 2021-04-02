@@ -22,8 +22,8 @@
         android:id="@+id/textView2"
         android:layout_width="157dp"
         android:layout_height="36dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
         android:text="@string/password"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,10 +44,10 @@
         android:id="@+id/edtclave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="59dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -55,65 +55,61 @@
         android:id="@+id/termsAndConditions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginStart="56dp"
         android:text="Acepto terminos y condiciones"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtclave" />
+        app:layout_constraintTop_toBottomOf="@+id/rememberData" />
 
     <Button
         android:id="@+id/btnregister"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginStart="260dp"
-        android:layout_marginTop="74dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="13dp"
         android:text="Registrate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtusuario" />
+        app:layout_constraintTop_toBottomOf="@+id/btningresar" />
 
     <Button
         android:id="@+id/btncancelar"
         android:layout_width="118dp"
         android:layout_height="48dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="27dp"
         android:text="@string/cancelar"
         app:layout_constraintStart_toEndOf="@+id/btningresar"
-        app:layout_constraintTop_toBottomOf="@+id/edtclave" />
+        app:layout_constraintTop_toBottomOf="@+id/termsAndConditions" />
 
     <Button
         android:id="@+id/btningresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="27dp"
         android:enabled="false"
         android:text="@string/ingresar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtclave" />
+        app:layout_constraintTop_toBottomOf="@+id/termsAndConditions" />
 
     <CheckBox
         android:id="@+id/rememberData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="33dp"
         android:text="Quiero recordar mis datos"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtclave" />
+        app:layout_constraintTop_toBottomOf="@+id/forgot_pass" />
 
     <TextView
         android:id="@+id/forgot_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="13dp"
         android:text="¿Recordar contraseña?"
         android:textColor="#3F51B5"
-        app:layout_constraintBottom_toTopOf="@+id/termsAndConditions"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtusuario"
-        app:layout_constraintVertical_bias="0.468" />
+        app:layout_constraintTop_toBottomOf="@+id/edtclave" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

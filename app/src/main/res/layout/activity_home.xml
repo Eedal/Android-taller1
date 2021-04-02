@@ -17,8 +17,8 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/login"
-            tools:srcCompat="@drawable/login" />
+            app:srcCompat="@drawable/desarrollo_movil"
+            tools:srcCompat="@drawable/desarrollo_movil" />
     </LinearLayout>
 
     <LinearLayout
@@ -38,7 +38,9 @@
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
             android:layout_weight="1"
-            android:text="@string/matematicas" />
+            android:text="@string/matematicas"
+            app:icon="@drawable/calculadora"
+            app:iconTint="#4500FFFF" />
 
         <Button
             android:id="@+id/btnfisica"
@@ -52,7 +54,9 @@
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
             android:layout_weight="1"
-            android:text="@string/fisica" />
+            android:text="@string/fisica"
+            app:icon="@drawable/que_cae"
+            app:iconTint="#4500FFFF" />
 
     </LinearLayout>
 
@@ -74,7 +78,9 @@
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
             android:layout_weight="1"
-            android:text="@string/geometria" />
+            android:text="@string/geometria"
+            app:icon="@drawable/geometria"
+            app:iconTint="#4500FFFF" />
 
         <Button
             android:id="@+id/btntexto"
@@ -88,7 +94,9 @@
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
             android:layout_weight="1"
-            android:text="@string/texto" />
+            android:text="@string/texto"
+            app:icon="@drawable/fuente"
+            app:iconTint="#4500FFFF" />
     </LinearLayout>
 
     <LinearLayout

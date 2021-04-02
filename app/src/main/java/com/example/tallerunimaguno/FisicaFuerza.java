@@ -29,16 +29,29 @@ public class FisicaFuerza extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.calcular_fuerza:
-                double fuerza= Double.parseDouble(masa.getText().toString()) * Double.parseDouble(aceleracion.getText().toString());
-                builder= new AlertDialog.Builder(this);
-                builder.setTitle("Velocidad");
-                builder.setMessage("La fuerza es: "+ fuerza +" N");
-                builder.setPositiveButton("Ok", null);
-                AlertDialog dialog=builder.create();
-                dialog.show();
-                fuerza=0;
-                aceleracion.setText("");
-                masa.setText("");
+                if(masa.getText().toString().isEmpty()
+                        || aceleracion.getText().toString().isEmpty()
+                ){
+                    builder = new AlertDialog.Builder(this);
+                    builder.setTitle("Advertencia");
+                    builder.setMessage("No puede quedar campos vacios");
+                    builder.setPositiveButton("Ok", null);
+                    AlertDialog dialog=builder.create();
+                    dialog.show();
+                }
+                else {
+                    double fuerza = Double.parseDouble(masa.getText().toString()) * Double.parseDouble(aceleracion.getText().toString());
+                    builder = new AlertDialog.Builder(this);
+                    builder.setTitle("Velocidad");
+                    builder.setMessage("La fuerza es: " + fuerza + " N");
+                    builder.setPositiveButton("Ok", null);
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                    fuerza = 0;
+                    aceleracion.setText("");
+                    masa.setText("");
+                }
+                break;
         }
     }
 }

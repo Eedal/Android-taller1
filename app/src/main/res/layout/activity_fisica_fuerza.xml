@@ -39,7 +39,7 @@
         android:layout_marginTop="21dp"
         android:contentDescription="Ingrese masa"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
@@ -62,7 +62,7 @@
         android:layout_marginTop="33dp"
         android:contentDescription="Ingrese acelaracion"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
