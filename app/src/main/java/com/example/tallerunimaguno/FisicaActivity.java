@@ -42,6 +42,10 @@ public class FisicaActivity extends AppCompatActivity implements View.OnClickLis
                 i= new Intent(getApplicationContext(), FisicaFuerza.class);
                 startActivity(i);
                 break;
+            case R.id.fisica_voltaje:
+                i= new Intent(getApplicationContext(), FisicaVoltaje.class);
+                startActivity(i);
+                break;
         }
     }
 }

@@ -115,7 +115,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     if(femenino.isChecked()){
                         sexo="Femenino";
                     }
-                    GlobalData.Users.add(UserController.store(username.getText().toString(),user.getText().toString(), password.getText().toString(), lastname.getText().toString(), email.getText().toString(), sexo));
+                    GlobalData.Users.add(UserController.store(username.getText().toString(),user.getText().toString(), password.getText().toString(), lastname.getText().toString(), email.getText().toString(), sexo, ""));
                     builder_exito= new AlertDialog.Builder(this);
                     builder_exito.setTitle("Atención");
                     builder_exito.setMessage("Registo exitoso");

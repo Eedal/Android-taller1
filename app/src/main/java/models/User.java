@@ -11,13 +11,14 @@ public class User implements Serializable {
     private String sexo;
     private String code;
 
-    public User(String username, String name, String password, String lastname, String email, String sexo) {
+    public User(String username, String name, String password, String lastname, String email, String sexo, String code) {
         this.username= username;
         this.name = name;
         this.lastname=lastname;
         this.email=email;
         this.password = password;
         this.sexo= sexo;
+        this.code = code;
     }
 
 
@@ -29,6 +30,7 @@ public class User implements Serializable {
         this.email="";
         this.password = "";
         this.sexo= "";
+        this.code ="";
     }
 
     public String getUsername() {
@@ -78,7 +80,6 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-
 
     public String getCode() {
         return code;

@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         usuario = findViewById(R.id.edtusuario);
         clave = findViewById(R.id.edtclave);
         ingresar = findViewById(R.id.btningresar);
@@ -65,18 +64,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Crea n objetos del modelo User con name que se le pase, en este caso Elkin1, Elkin2, Elkin3,... , Elkin(n)
         //y password de igual manera (Elkin1, Elkin2, Elkin3,... ,Elkin(n)
+        if(GlobalData.Users.size() == 0){
+            UsersSeeders(3, "Elkin");
 
-        UsersSeeders(3, "Elkin");
-
-        ArrayList<User> UsersAux = (ArrayList<User>) getIntent().getSerializableExtra("Users");
-
-        if(UsersAux != null){
-            GlobalData.Users.clear();
-            GlobalData.Users = UsersAux;
         }
+
         for (models.User User: GlobalData.Users) {
             Log.d("User", User.getUsername());
-            Log.d("Email", User.getEmail());
+            Log.d("Email", User.getPassword());
 
 
         }
@@ -85,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void UsersSeeders(Integer units, String name){
         for (int i = 0; i < units ; i++){
-            GlobalData.Users.add(new User(name+String.valueOf(i+1),name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", "holasoy@gmail.com", "Masculino"));
+            GlobalData.Users.add(new User(name+String.valueOf(i+1),name+ String.valueOf(i+1), name+ String.valueOf(i+1), "Prueba", name+String.valueOf(i+1)+"@gmail.com", "Masculino", ""));
         }
     }
     public void checksBoxListener(){

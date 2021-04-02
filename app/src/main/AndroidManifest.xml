@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TallerUnimagUno">
-        <activity android:name=".FisicaFuerza"></activity>
+        <activity android:name=".FisicaVoltaje"></activity>
+        <activity android:name=".FisicaFuerza" />
         <activity android:name=".FisicaVelocidad" />
         <activity android:name=".RestablacerPassActivity" />
         <activity android:name=".ForgotPassActivity" />

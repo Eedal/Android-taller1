@@ -26,4 +26,8 @@
     <string name="femenino">Femenino</string>
     <string name="sexo">Sexo</string>
     <string name="geometria">Geometria</string>
+    <string-array name="circuitsOptions">
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

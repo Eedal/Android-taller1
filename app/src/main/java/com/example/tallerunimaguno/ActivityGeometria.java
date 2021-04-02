@@ -41,6 +41,7 @@ public class ActivityGeometria extends AppCompatActivity implements AdapterView.
 
 
         builder= new AlertDialog.Builder(this);
+        builder2= new AlertDialog.Builder(this);
 
         if(x1.getText().toString().isEmpty()
                 || x2.getText().toString().isEmpty()
